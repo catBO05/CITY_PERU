@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Bigshot+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  list-style: none;
+}
+
+:root {
+  --peru: #c8102E;
+
+  --white: #fff;
+
+  --black: #000;
+}
+
+h1, h2 {
+  font-family: 'Bigshot One', cursive;
+}
+
+h3, h4, h5, h6, li, button {
+  font-family: 'merienda', cursive;
+}
+
+li {
+  font-size: 24px;
+}
+
+h2 {
+  text-align: left;
+  font-size: 40px;
+  margin-bottom: 30px;
+  position: relative;
+  color: var(--black);
+  width: 80%;
+  max-width: 1200px;
+  padding: 10px 0;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  height: 8px;
+  width: 125%; 
+  background-color: var(--peru);
+  border-radius: 5px;
+}
+
+
+/* BODY */
+
+
+body {
+  background-color: var(--white);
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+/* MENU */
+
+
+.logo {
+  height: 5%;
+  width: 5%;
+}
+
+nav#menu {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 12px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+}
+
+nav#menu .menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: var(--white);
+  cursor: pointer;
+}
+
+nav#menu ul {
+  display: flex;
+  gap: 80px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav#menu ul li a {
+  position: relative;
+  color: var(--peru);
+  font-weight: bold;
+  transition: color 0.8s ease;
+  padding-bottom: 5px;
+}
+
+
+/* START */
+
+
+.start {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.start video {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.start-text {
+  color: var(--white);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  mix-blend-mode: exclusion;
+}
+
+.start h1 {
+  font-size: 28vh;
+}
+
+
+/* INFO */
+
+
+.info {
+  width: 80%;
+  max-width: 1200px;
+  margin: 25px auto;
+  padding: 20px 0;
+}
+
+.info-text {
+  text-align: left;
+}
+
+.img-cont {
+  position: relative;
+  width: 100%;
+}
+
+.img-cont img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 30px 0 0 30px;
+}
+
+.info-text figure {
+  width: 100%;
+  text-align: center;
+}
+
+.back-black {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.back-black h3 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: var(--peru);
+}
+
+.back-black p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: white;
+  width: auto;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.boton {
+  display: inline-block;
+  padding: 15px 50px;
+  margin: 20px 0;
+  color: var(--white);
+  background-color: rgba(0, 0, 0, 0.6);
+  border: var(--peru) 3px solid;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+}
+
+.boton:hover {
+  transform: translateY(-5px);
+  background-color: var(--peru);
+  border: var(--peru) 3px solid;
+}
+
+
+/* TURISMO */
+
+
+.turismo-cont {
+  width: 80%;
+  max-width: 1200px;
+  margin: 25px auto;
+  padding: 50px 0;
+}
+
+.img-grid {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+  justify-items: center;
+  grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
+  width: 90%;
+  margin: 25px auto;
+  border-radius: 10px;
+}
+
+.img-grid img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+}
+
+.img-grid .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s ease;
+}
+
+.img-grid:hover img {
+  transform: scale(1.1);
+  filter: brightness(70%);
+}
+
+.img-grid:hover .overlay {
+  opacity: 1;
+  color: var(--white);
+  font-size: 36px;
+  visibility: visible;
+}
+
+.boton-overlay {
+  display: inline-block;
+  padding: 15px 50px;
+  margin: 20px 0;
+  color: var(--white);
+  background-color: transparent;
+  border: var(--white) 3px solid;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+}
+
+.boton-overlay:hover {
+  transform: translateY(-5px);
+  background-color: var(--peru);
+  border: var(--peru) 3px solid;
+}
+
+/* GASTRONOMIA */
+
+
+/* CONTACT */
+
