@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bigshot+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
 
 * {
@@ -19,7 +19,7 @@
 }
 
 h1, h2 {
-  font-family: 'Bigshot One', cursive;
+  font-family: 'Abril Fatface', cursive;
 }
 
 h3, h4, h5, h6, li, button {
@@ -32,7 +32,7 @@ li {
 
 h2 {
   text-align: center;
-  font-size: 48px;
+  font-size: 40px;
   margin-bottom: 25px;
   position: relative;
   color: var(--black);
@@ -134,13 +134,111 @@ nav#menu ul li a:hover {
 }
 
 
+/* APARTADOS */
+
+
+.apartados {
+  width: 80%;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 30px 0;
+}
+
+.apartados-imgs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.apartado-grid {
+  margin: 10px;
+  position: relative;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.apartado-box img {
+  width: 100%;
+  height: 28em;
+  object-fit: cover; 
+  border-radius: 10px;
+}
+
+.image-over h3 {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  margin: 0;
+  padding: 5px 10px;
+  font-size: 22px;
+  color: #fff;
+  z-index: 2;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.image-over {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.overlay {
+  height: 0;
+  width: 100%;
+  background: linear-gradient(transparent, #000000 95%);
+  color: var(--white);
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 20px;
+  text-align: left;
+  font-size: 16px;
+  transition: height 0.5s;
+}
+
+.apartado-box:hover .overlay {
+  height: 50%;
+}
+
+.apartado-box:hover h3 {
+  transform: translateY(-200px);
+}
+
+.ver {
+  display: inline-block;
+  padding: 5px 15px;
+  margin: 10px;
+  color: var(--white);
+  background-color: rgba(0, 0, 0, 0.6);
+  border: var(--peru) 3px solid;
+  border-radius: 15px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+  align-self: flex-start;
+}
+
+.ver:hover {
+  transform: translateY(-5px);
+  background-color: var(--peru);
+  border: var(--peru) 3px solid;
+}
+
+
 /* INFO */
 
 
 .info {
   width: 60%;
   max-width: 1200px;
-  margin: 25px auto;
+  margin: 50px auto;
 }
 
 .info-text {
@@ -227,7 +325,7 @@ nav#menu ul li a:hover {
 
 
 .turismo-cont {
-  width: 70%;
+  width: 80%;
   max-width: 1200px;
   margin: 30px auto;
   padding: 30px 0;
@@ -310,26 +408,92 @@ nav#menu ul li a:hover {
   padding: 20px 0;
 }
 
-.comida-grid {
+.gastronomia-cont p {
+  font-size: 18px;
+  text-align: center;
+  margin: 20px;
+}
+
+.comida-image h3 {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  margin: 0;
+  padding: 5px 10px;
+  font-size: 22px;
+  color: #fff;
   z-index: 2;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(240px, auto));
-  gap: 30px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.comida-grid {
+  width: 100%;
+  overflow-x: auto;
+  margin: 3em auto;
+  display: flex;
+  gap: 1em;
+  position: relative;
+  anchor-name: --flechas;
+  scroll-snap-type: x mandatory;
+}
+
+.comida-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.comida-grid::scroll-button(right) {
+  content: '➜';
+  border: none;
+  background-color: var(--peru);
+  color: var(--white);
+  font-size: 2em;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding-bottom: .1em;
+  cursor: pointer;
+  position: fixed;
+  position-anchor: --flechas;
+  position-area: right center;
+  margin: 20px;
+}
+
+.comida-grid::scroll-button(left) {
+  content: '➜';
+  rotate: 180deg;
+  border: none;
+  background-color: var(--peru);
+  color: var(--white);
+  font-size: 2em;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding-bottom: .1em;
+  cursor: pointer;
+  position: fixed;
+  position-anchor: --flechas;
+  position-area: left center;
+  margin: 20px;
+}
+
+.comida-grid::scroll-button(right):disabled, 
+.comida-grid::scroll-button(left):disabled {
+  opacity: 0.5;
+  cursor: auto;
 }
 
 .comida-card {
+  scroll-snap-align: start;
+  flex: 0 0 21.2em;
+  height: 12em;
   background: var(--peru);
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.comida-card:hover {
-  transform: translateY(-10px);
-}
-
 .comida-image {
+  position: relative;
   height: 200px;
   overflow: hidden;
 }
@@ -345,19 +509,9 @@ nav#menu ul li a:hover {
   transform: scale(1.2);
 }
 
-.comida-info {
-  padding: 20px;
-}
-
 .comida-title {
   font-size: 22px;
   margin-bottom: 10px;
-  color: var(--white);
-}
-
-.comida-info p {
-  font-size: 18px;
-  margin-bottom: 15px;
   color: var(--white);
 }
 
@@ -370,10 +524,16 @@ nav#menu ul li a:hover {
 
 /* PARALLAX */
 
-figure.parallax {
-  overflow: hidden;
-  height: 100%;
-  margin: 0;
+.parallax {
   position: fixed;
-  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("MEDIA/IMG/Peru.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -10;
+  opacity: 8%;
 }
