@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  list-style: none;
+}
+
+:root {
+  --peru: #c8102E;
+
+  --white: #fff;
+
+  --black: #000;
+}
+
+h1, h2 {
+  font-family: 'Abril Fatface', cursive;
+}
+
+h3, h4, h5, h6, li, button {
+  font-family: 'merienda', cursive;
+}
+
+li {
+  font-size: 18px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 25px;
+  position: relative;
+  color: var(--black);
+  max-width: 1200px;
+}
+
+
+/* BODY */
+
+
+body {
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+/* START */
+
+
+.start {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.start img {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.start-text {
+  color: var(--white);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  mix-blend-mode: exclusion;
+}
+
+.start h1 {
+  font-size: 28vh;
+}
+
+
+/* TURISMO */
+
+
+.turismo-cont {
+  width: 80%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 30px 0;
+}
+
+.img-grid {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+  justify-items: center;
+  grid-template-rows: repeat(auto-fit, minmax(220px, 1fr));
+  width: 75%;
+  margin: 25px auto;
+  border-radius: 10px;
+}
+
+.img-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+}
+
+.img-grid .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+
+.img-grid:hover img {
+  transform: scale(1.1);
+  filter: brightness(70%);
+}
+
+.img-grid:hover .overlay {
+  opacity: 1;
+  color: var(--white);
+  font-size: 25px;
+  visibility: visible;
+}
+
+.boton-overlay {
+  display: inline-block;
+  padding: 10px 40px;
+  margin: 20px 0;
+  color: var(--white);
+  background-color: transparent;
+  border: var(--white) 3px solid;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+}
+
+.boton-overlay:hover {
+  transform: translateY(-5px);
+  background-color: var(--peru);
+  border: var(--peru) 3px solid;
+}
