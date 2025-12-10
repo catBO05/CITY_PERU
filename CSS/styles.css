@@ -457,9 +457,74 @@ nav#menu ul li a:hover {
 
 
 .Hospedaje {
-  width: 60%;
+  width: 45%;
   max-width: 1200px;
-  margin: 50px auto;
+  margin: 7em auto;
+}
+
+.carousel {
+  overflow-x: auto;
+  display: flex;
+  gap: 1em;
+  width: 100%;
+  anchor-name: --flechas;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel::scroll-button(right) {
+  content: '➜';
+  border: none;
+  background-color: var(--peru);
+  font-size: 2.4em;
+  color: var(--white);
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding-bottom: .1em;
+  position: fixed;
+  position-anchor: --flechas;
+  position-area: right center;
+  translate: 45%;
+}
+
+.carousel::scroll-button(left) {
+  content: '➜';
+  rotate: 180deg;
+  border: none;
+  background-color: var(--peru);
+  font-size: 2.4em;
+  color: var(--white);
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding-bottom: .1em;
+  position: fixed;
+  position-anchor: --flechas;
+  position-area: left center;
+  translate: -50%;
+}
+
+.carousel::scroll-button(left):disabled,
+.carousel::scroll-button(right):disabled {
+  opacity: 60%;
+  pointer-events: none;
+}
+
+.card-caro {
+  flex: 0 0 42em;
+  scroll-snap-align: start;
+}
+
+.card-caro img {
+  width: 100%;
+  height: 50vh;
+  border-radius: 20px;
 }
 
 
