@@ -33,10 +33,13 @@ li {
 h2 {
   text-align: center;
   font-size: 40px;
-  margin-bottom: 35px;
   position: relative;
   color: var(--black);
   max-width: 1200px;
+}
+
+.title {
+  margin-bottom: 1.2em;
 }
 
 /* BODY */
@@ -99,6 +102,11 @@ nav#menu ul li a {
 
 nav#menu ul li a:hover {
   color: var(--black);
+}
+
+nav#menu a img {
+  height: 50px;
+  width: auto;
 }
 
 /* START */
@@ -238,7 +246,9 @@ nav#menu ul li a:hover {
 .info {
   width: 60%;
   max-width: 1200px;
-  margin: 50px auto;
+  margin: 2.5em auto;
+  margin-bottom: 2.5em;
+  margin-bottom: 8em;
 }
 
 .info-text {
@@ -302,13 +312,91 @@ nav#menu ul li a:hover {
 }
 
 
+/* TURISMO */
+
+
+.turismo-cont {
+  width: 80%;
+  max-width: 1200px;
+  margin: 2.5em auto;
+  margin-bottom: 5em;
+}
+
+.tour-grid {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+  justify-items: center;
+  grid-template-rows: repeat(auto-fit, minmax(220px, 1fr));
+  width: 75%;
+  margin: 25px auto;
+  border-radius: 10px;
+}
+
+.tour-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+}
+
+.tour-grid .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+
+.tour-grid:hover img {
+  transform: scale(1.1);
+  filter: brightness(70%);
+}
+
+.tour-grid:hover .overlay {
+  opacity: 1;
+  color: var(--white);
+  font-size: 25px;
+  visibility: visible;
+}
+
+.boton-overlay {
+  display: inline-block;
+  padding: 10px 40px;
+  margin: 20px 0;
+  color: var(--white);
+  background-color: transparent;
+  border: var(--white) 3px solid;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+}
+
+.boton-overlay:hover {
+  transform: translateY(-5px);
+  background-color: var(--peru);
+  border: var(--peru) 3px solid;
+}
+
+
 /* ACTIVIDADES */
 
 
-.actividad {
+.actividades-cont {
   width: 80%;
   max-width: 1200px;
-  margin: 7em auto;
+  margin: 5em auto;
+  margin-bottom: 2.5em;
   padding: 50px auto;
 }
 
@@ -335,11 +423,25 @@ nav#menu ul li a:hover {
   border-radius: 15px;
   overflow: hidden;
   margin-bottom: 20px;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: 20em;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 15px 15px 0 0;
+  display: block;
 }
 
 .card-text {
   color: var(--white);
   padding: 10px;
+  position: absolute;
+  bottom: 1px;
+  z-index: 2; 
+  background: rgba(0, 0, 0, 0.504);
 }
 
 .card-text h3 {
@@ -350,10 +452,11 @@ nav#menu ul li a:hover {
 /* VIAJES */
 
 
-.viajes {
+.viajes-cont {
   width: 60%;
   max-width: 1200px;
-  margin: 80px auto;
+  margin: 2.5em auto;
+  margin-bottom: 8em;
 }
 
 .boletos {
@@ -435,31 +538,34 @@ nav#menu ul li a:hover {
 .back-side .btn-boleto {
   position: absolute;
   bottom: 30%;
-  right: 71%;
-  padding: 10px 25px;
-  background-color: var(--peru);
-  color: var(--white);
-  border: none;
-  border-radius: 10px;
+  right: 72%;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: var(--black);
+  border: var(--peru) 3px solid;
+  border-radius: 25px;
   font-family: 'Merienda', cursive;
   cursor: pointer;
-  font-size: 3vh;
+  font-size: 2.5vh;
   transition: 0.3s ease;
 }
 
 .back-side .btn-boleto:hover {
   transform: scale(1.07);
-  background-color: var(--black);
+  background-color: var(--peru);
+  border: var(--peru) 3px solid;
+  color: var(--white);
 }
 
 
 /* HOSPEDAJE */
 
 
-.Hospedaje {
+.hospedaje-cont {
   width: 45%;
   max-width: 1200px;
-  margin: 7em auto;
+  margin: 5em auto;
+  margin-bottom: 2.5em;
 }
 
 .carousel {
@@ -469,6 +575,7 @@ nav#menu ul li a:hover {
   width: 100%;
   anchor-name: --flechas;
   scroll-snap-type: x mandatory;
+  cursor: pointer;
 }
 
 .carousel::-webkit-scrollbar {
@@ -513,7 +620,7 @@ nav#menu ul li a:hover {
 .carousel::scroll-button(left):disabled,
 .carousel::scroll-button(right):disabled {
   opacity: 60%;
-  pointer-events: none;
+  cursor: none;
 }
 
 .card-caro {
@@ -525,13 +632,224 @@ nav#menu ul li a:hover {
   width: 100%;
   height: 50vh;
   border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.card-caro figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+.text-over {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  color: var(--white);
+  border-radius: 0 0 20px 20px;
+}
+
+.carousel h2 {
+  text-align: left;
+  font-size: 32px;
+  position: relative;
+  color: var(--white);
+}
+
+.carousel p {
+  text-align: left;
+  font-size: 18px;
+  position: relative;
+  color: var(--white);
+}
+
+.carousel p span {
+  text-align: left;
+  font-size: 24px;
+  position: relative;
+  color: var(--peru);
+}
+
+.card-caro:hover img {
+  filter: blur(2px) brightness(0.8);
 }
 
 
 /* CONTACT */
 
 
+.contact {
+  width: 80%;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 30px 0;
+}
+
+.cont-form {
+  grid-gap: 30px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.cont-form form .block, textarea {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 16px;
+  border: 3px solid var(--peru);
+  margin-bottom: 20px;
+  border-radius: 25px;
+  outline: 0px;
+}
+
+.cont-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 580px;
+}
+
+.cont-form .block, textarea {
+  max-width: 580px;
+  min-width: 240px;
+  max-height: 160px;
+  min-height: 50px;
+}
+
+.cont-form .boton {
+  padding: 10px 20px;
+  font-size: 2.5vh;
+  background-color: blur(2px);
+  color: var(--black);
+  border: var(--peru) 3px solid;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-bottom: 4em;
+}
+
+.cont-form .boton:hover {
+  transform: scale(1.05);
+  background-color: var(--peru);
+  border: var(--peru) 3px solid;
+  color: var(--white);
+}
+
+
+/* FOOTER */
+
+
+.footer {
+  background-color: var(--peru);
+  color: var(--white);
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-container h2 {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  color: var(--white);
+}
+
+.text-logo {
+  display: block;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease;
+}
+
+.text-logo h4 {
+  font-size: 1.5em;
+}
+
+.text-logo:hover {
+  transform: scale(1.07);
+}
+
+.footer-logo img {
+  width: 7.5em;
+  height: auto;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.footer-info {
+  text-align: center;
+}
+
+.footer-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--white);
+}
+
+.footer-info ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.footer-info ul li:hover {
+  transform: scale(1.2);
+  font-weight: bold;
+}
+
+.footer-info p {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.footer a:link,
+.footer a:visited {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--white);
+  transition: 0.3s ease;
+}
+
+.social-icons i {
+  font-size: 18px;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+}
+
+.copy {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+
 /* PARALLAX */
+
 
 .parallax {
   position: fixed;
@@ -545,4 +863,32 @@ nav#menu ul li a:hover {
   background-attachment: fixed;
   z-index: -10;
   opacity: 8%;
+}
+
+
+/* ANIMACION SCROLL */
+
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.fade-in {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 40%;
+}
+
+.fade-in-slow {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 20%;
 }
