@@ -148,7 +148,8 @@ nav#menu a img {
 .apartados {
   width: 80%;
   max-width: 1200px;
-  margin: 60px auto;
+  margin: 4em auto;
+  margin-bottom: 2.5em;
   padding: 30px 0;
 }
 
@@ -419,7 +420,6 @@ nav#menu a img {
 }
 
 .card {
-  background-color: var(--peru);
   border-radius: 15px;
   overflow: hidden;
   margin-bottom: 20px;
