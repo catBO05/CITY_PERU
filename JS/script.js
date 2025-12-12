@@ -1,4 +1,38 @@
+
+// MENU RESPONSIVE
+
+
+$(document).ready(function () {
+    $("#menu-toggle").on("click", function () {
+        $("#nav-links-responsive").toggleClass("active");
+    });
+
+    $("#nav-links-responsive a").on("click", function () {
+        $("#nav-links-responsive").removeClass("active");
+    });
+});
+
+
 // MENU
+
+$(document).ready(function() {
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+
+        if (scroll > windowHeight * 0.5) {
+            $(".logo").attr("src", "MEDIA/IMG/logo peru.png");
+            $("#menu a").css("color", "white");
+            $("#menu-toggle i").css("color", "white");
+            
+        } else {
+            $(".logo").attr("src", "MEDIA/IMG/logo_peru_rojo.png");
+
+            $("#menu a").css("color", "rgb(200, 16, 46)");
+            $("#menu-toggle i").css("color", "rgb(200, 16, 46)");
+        }
+    });
+});
 
 
 function changeOpacity() {
@@ -17,24 +51,6 @@ function changeOpacity() {
 $(document).ready(function() {
     $(window).on("scroll", function() {
         changeOpacity();
-    });
-});
-
-$(document).ready(function() {
-    $(window).on("scroll", function() {
-        var scroll = $(window).scrollTop();
-        var windowHeight = $(window).height();
-
-        if (scroll > windowHeight * 0.5) {
-            $(".logo").attr("src", "MEDIA/IMG/logo peru.png");
-
-            $("#menu  a").css("color", "white");
-
-        } else {
-            $(".logo").attr("src", "MEDIA/IMG/logo_peru_rojo.png");
-            
-            $("#menu  a").css("color", "rgb(200, 16, 46)");
-        }
     });
 });
 

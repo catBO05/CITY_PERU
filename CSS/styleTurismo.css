@@ -305,7 +305,6 @@ nav#menu a img {
   width: 45%;
   max-width: 1200px;
   margin: 2.5em auto;
-  margin-bottom: 2.5em;
   margin-bottom: 8em;
 }
 
@@ -390,7 +389,7 @@ nav#menu a img {
   left: 0;
   width: 100%;
   padding: 1em;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.881));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.73));
   color: var(--white);
   border-radius: 0 0 20px 20px;
 }
@@ -408,6 +407,7 @@ nav#menu a img {
   position: relative;
   color: var(--white);
 }
+
 
 /* FOOTER */
 
@@ -532,3 +532,254 @@ nav#menu a img {
   opacity: 8%;
 }
 
+
+/* ANIMACION SCROLL */
+
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.fade-in {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 30%;
+}
+
+
+/* RESPONSIVE */
+
+/* TABLET */
+
+
+@media (max-width: 1024px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+
+  .start h1 {
+    font-size: 20vh;
+  }
+
+  /* PERSONAS */
+
+  .personas {
+    width: 80%;
+    max-width: 1200px;
+    margin: 2.5em auto;
+    margin-bottom: 5em;
+  }
+
+  /* CLIMA */
+
+  .Clima {
+    width: 80%;
+    max-width: 1200px;
+    margin: 2.5em auto;
+    margin-bottom: 5em;
+  }
+
+  #chartclima {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  /* RECOMENDACIONES */
+
+  .reco-cont {
+    width: 70%;
+    height: 80%;
+  }
+
+  .card-caro:hover img {
+    filter: none;
+  }
+
+  .card-caro {
+    flex: 0 0 100%;
+  }
+    
+  .card-caro img {
+    height: 55vh;
+  }
+
+  /* FOOTER  */
+
+  .footer-logo img {
+    width: 80px;
+    height: auto;
+  }
+
+  .footer-logo {
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-info h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .footer-info ul {
+    list-style: none;
+  }
+
+  .footer-info ul li,
+  .footer-info p {
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+
+}
+
+
+/* MOVIL */
+
+
+@media (max-width: 768px) {
+    
+  nav#menu {
+    background: #000000cc;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px;
+    width: 100%;
+  }
+  
+  nav#menu ul {
+    position: fixed;
+    background-color: var(--black);
+    top: 65px;
+    right: -100%;
+    width: 30%;
+    height: 34em;
+    background: #000000cc;
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 50px;
+    transition: right 0.5s ease-in-out;
+    text-align: center;
+    color: var(--peru);
+  }
+  
+  nav#menu ul.active {
+    right: 0;
+  }
+  
+  nav#menu .menu-toggle {
+    display: block;
+  }
+
+
+  .wrapper {
+    padding: 0 10px;
+  }
+
+  .start h1 {
+    font-size: 15vh;
+  }
+
+  /* COMO LLEGAR */
+
+  .modal, .overlay {
+    display: none !important;
+    pointer-events: none;
+    filter: none;
+  }
+
+  .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+  }
+    
+  /* PERSONAS */
+
+  .personas {
+    width: 80%;
+    max-width: 1200px;
+    margin: 2.5em auto;
+    margin-bottom: 5em;
+  }
+
+  /* CLIMA */
+
+  .Clima {
+    width: 80%;
+    max-width: 1200px;
+    margin: 2.5em auto;
+    margin-bottom: 5em;
+  }
+
+  #chartclima {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  /* RECOMENDACIONES */
+
+  .reco-cont {
+    width: 90%;
+    width: 65vh;
+  }
+
+  .card-caro:hover img {
+    filter: none;
+  }
+
+  .card-caro {
+    flex: 0 0 100%;
+  }
+    
+  .card-caro img {
+    height: 75vh;
+  }
+
+  .carousel::scroll-button(left),
+  .carousel::scroll-button(right) {
+    display: none;
+  }
+    
+  /* FOOTER  */
+
+  .footer-logo img {
+    width: 80px;
+    height: auto;
+  }
+
+  .footer-logo {
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-info h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .footer-info ul {
+    list-style: none;
+  }
+
+  .footer-info ul li,
+  .footer-info p {
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  
+}

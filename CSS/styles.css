@@ -469,7 +469,7 @@ nav#menu a img {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 90px;
+  gap: 80px;
   flex-wrap: wrap;
   width: 100%;
   margin: 0 auto;
@@ -884,11 +884,308 @@ nav#menu a img {
 .fade-in {
   animation: appear linear;
   animation-timeline: view();
-  animation-range: entry 0 cover 40%;
+  animation-range: entry 0 cover 32%;
 }
 
-.fade-in-slow {
-  animation: appear linear;
-  animation-timeline: view();
-  animation-range: entry 0 cover 20%;
+
+/* RESPONSIVE */
+
+/* TABLET */
+
+
+@media (max-width: 1024px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+
+  .start h1 {
+    font-size: 20vh;
+  }
+
+  .apartados-imgs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info {
+    width: 80%;
+  }
+
+  /* BOLETOS */
+
+  .viajes-cont {
+    width: 60%;
+    margin-bottom: 10em;
+  }
+
+  .boletos figure {
+    gap: 150px;
+  }
+    
+  .flip-card {
+    width: 100%;
+    height: 150px;
+  }
+
+  .front-side p {
+    font-size: 1.3em;
+    padding-left: 25%;
+    bottom: 35px; 
+    right: 5px;
+    max-width: 50%;
+  }
+    
+  .back-side .btn-boleto {
+    font-size: 1.3em;
+    right: 70%;
+    bottom: 25%;
+  }
+
+  /* HOSPEDAJE */
+
+  .hospedaje-cont {
+    width: 70%;
+    height: 80%;
+  }
+
+  .card-caro:hover img {
+    filter: none;
+  }
+
+  .card-caro {
+    flex: 0 0 100%;
+  }
+    
+  .card-caro img {
+    height: 55vh;
+  }
+
+  /* FOOTER  */
+
+  .footer-logo img {
+    width: 80px;
+    height: auto;
+  }
+
+  .footer-logo {
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-info h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .footer-info ul {
+    list-style: none;
+  }
+
+  .footer-info ul li,
+  .footer-info p {
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+
+}
+
+
+/* MOVIL */
+
+
+@media (max-width: 768px) {
+    
+  nav#menu {
+    background: #000000cc;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px;
+    width: 100%;
+  }
+  
+  nav#menu ul {
+    position: fixed;
+    background-color: var(--black);
+    top: 74px;
+    right: -100%;
+    width: 30%;
+    height: 34em;
+    background: #000000cc;
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 50px;
+    transition: right 0.5s ease-in-out;
+    text-align: center;
+    color: var(--peru);
+  }
+  
+  nav#menu ul.active {
+    right: 0;
+  }
+  
+  nav#menu .menu-toggle {
+    display: block;
+  }
+
+  .wrapper {
+    padding: 0 10px;
+  }
+
+  .start h1 {
+    font-size: 15vh;
+  }
+
+  /* START */
+
+  .start h1 {
+    font-size: 15vh;
+  }
+
+  /* APARTADOS */
+
+  .apartados {
+    width: 90%;
+    margin-top: 2em;
+  }
+    
+  .apartados-imgs {
+    grid-template-columns: 1fr;
+  }
+
+  .apartado-box img {
+    height: 20em;
+  }
+
+  /* INFO */
+
+  .info {
+    width: 90%;
+    margin-bottom: 4em;
+  }
+
+  .img-cont {
+    position: static;
+  }
+
+  .img-cont img {
+    border-radius: 30px 30px 0 0;
+  }
+
+  .back-black {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-radius: 0 0 30px 30px;
+    padding: 15px;
+    text-align: center;
+  }
+    
+  .back-black p {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  /* TURISMO */
+
+  .turismo-cont {
+    width: 90%;
+  }
+    
+  .tour-grid {
+    width: 100%;
+  }
+
+  /* ACTIVIDADES */
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    height: 15em;
+  }
+    
+  /* BOLETOS */
+
+  .viajes-cont {
+    width: 80%;
+    margin-bottom: 10em;
+  }
+
+  .boletos figure {
+    gap: 150px;
+  }
+    
+  .flip-card {
+    width: 100%;
+    height: 150px;
+  }
+
+  .front-side p {
+    font-size: 1.3em;
+    padding-left: 25%;
+    bottom: 35px; 
+    right: 5px;
+    max-width: 50%;
+  }
+    
+  .back-side .btn-boleto {
+    font-size: 1.3em;
+    right: 70%;
+    bottom: 25%;
+  }
+    
+  /* HOSPEDAJE */
+
+  .hospedaje-cont {
+    width: 90%;
+  }
+
+  .card-caro:hover img {
+    filter: none;
+  }
+
+  .card-caro {
+    flex: 0 0 100%;
+  }
+    
+  .card-caro img {
+    height: 55vh;
+  }
+
+  .carousel::scroll-button(left),
+  .carousel::scroll-button(right) {
+    display: none;
+  }
+    
+  /* FOOTER  */
+
+  .footer-logo img {
+    width: 80px;
+    height: auto;
+  }
+
+  .footer-logo {
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-info h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .footer-info ul {
+    list-style: none;
+  }
+
+  .footer-info ul li,
+  .footer-info p {
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  
 }
