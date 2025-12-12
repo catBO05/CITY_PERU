@@ -9,6 +9,7 @@
         <link rel="icon" href="MEDIA/IMG/favicon32x32.png" type="image/png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
         <script src="JS/script.js"></script>
     </head>
 
@@ -18,7 +19,7 @@
                 <nav id="menu">
                     <ul class="left-links" id="text-co">
                         <li><a href="#ubicacion">Cómo llegar</a></li>
-                        <li><a href="#clima">Clima</a></li>
+                        <li><a href="#persona">Concurrencia</a></li>
                     </ul>
                     
                     <a href="index.html">
@@ -26,8 +27,8 @@
                     </a>
                     
                     <ul class="right-links" id="text-co">
-                        <li><a href="#viajes">Viajes</a></li>
-                        <li><a href="#hoteles">Hospedaje</a></li>
+                        <li><a href="#clima">Clima</a></li>
+                        <li><a href="#recom">Recomendaciones</a></li>
                     </ul>
                 </nav>
             </div>
@@ -44,40 +45,126 @@
 
         <section class="ubi fade-in">
             <h2>¿Cómo llegar?</h2>
-            <div class="ubi-content">
-                <div class="texto">
-                    <p>Lo primero que debes hacer es llegar a la ciudad del Cusco, ya sea por vía terrestre o aérea. Una vez en Cusco, tienes dos principales opciones para llegar a Machu Picchu:
-                    </p>
+                <div class="ubi-content">
+                    <div class="ubi-image">
+                        <figure>
+                            <img src="MEDIA/IMG/mapa-rutas-machu-picchu.webp" alt="Rutas_MachuPicchu" class="foto" id="rutas">
+                        </figure>
+
+                        <div class="overlay">
+                            <h3>Agrandar</h3>            
+                        </div>
+                    </div>
                 </div>
-                <div class="ubi-image">
-                    <figure>
-                        <img src="MEDIA/IMG/mapa-rutas-machu-picchu.webp" alt="Mapa_Machu_Picchu">
-                    </figure>
+
+                <div id="modal" class="modal">
+                    <img class="modal-contenido" id="imgGrande">
                 </div>
+
                 <div class="texto" id="nosotros">
-                    <h3>Camino Inca hacia Machu Picchu </h3>
-                    <p>
-                        El Camino Inca inicia en el KM 82 de la vía férrea Cusco - Machu Picchu. Este recorrido dura 4 días y 3 noches, permitiéndote transitar el antiguo y enigmático camino de piedra hasta la ciudadela inca. También existe una versión más corta, con una duración de 2 días y 1 noche, partiendo desde el Km 104. Esta ruta es ideal para quienes buscan una experiencia auténtica de turismo en machu picchu. 
+                    <div class="texto-columna">
+                        <h3>Camino Inca hacia Machu Picchu </h3>
+                        <p>El Camino Inca inicia en el KM 82 de la vía férrea Cusco - Machu Picchu. Este recorrido dura 4 días y 3 noches, permitiéndote transitar el antiguo y enigmático camino de piedra hasta la ciudadela inca. También existe una versión más corta, con una duración de 2 días y 1 noche, partiendo desde el Km 104. Esta ruta es ideal para quienes buscan una experiencia auténtica de turismo en Machu Picchu.
                         <br>
-                        Es imprescindible reservar tu boleto con al menos 5 meses de anticipación, ya que los cupos son limitados. La mejor manera de asegurar tu ingreso es a través de agencias de viaje. El acceso se realiza en grupos de mínimo 10 personas yguías calificados te asistirán durante todo el recorrido.
-                    </p>
-                    <h3>Vía Tren</h3>
-                    <p>
-                        Otra opción más cómoda es llegar en tren. Es recomendable adquirir tu billete con al menos un mes de anticipación para asegurar disponibilidad. Puedes comprar los boletos en la estación de San Pedro en Cusco o en la estación de tren de Poroy. También hay salidas desde Ollantaytambo.
+                        Es imprescindible reservar tu boleto con al menos 5 meses de anticipación, ya que los cupos son limitados. La mejor manera de asegurar tu ingreso es a través de agencias de viaje. El acceso se realiza en grupos de mínimo 10 personas y guías calificados te asistirán durante todo el recorrido.
+                        </p>
+                    </div>
+
+                    <div class="texto-columna">
+                        <h3>Vía Tren</h3>
+                        <p>Otra opción más cómoda es llegar en tren. Es recomendable adquirir tu billete con al menos un mes de anticipación para asegurar disponibilidad. Puedes comprar los boletos en la estación de San Pedro en Cusco o en la estación de tren de Poroy. También hay salidas desde Ollantaytambo.
                         <br>
                         El trayecto en tren hasta Machu Picchu Pueblo (Aguas Calientes) dura aproximadamente 4 horas. Desde allí, tienes dos maneras de ascender a la ciudadela de Machu Picchu:
                         En bus: Un recorrido de 20 minutos.
                         A pie: Aproximadamente 1 hora y 30 minutos, sin costo adicional.
-                    </p>
+                        </p>
+                    </div>
                 </div>
-
+        </section>
+        
+        <section class="personas fade-in" id="persona">
+            <div class="personas-cont">
+                <h2>Concurrencia</h2>
+                <canvas id="chart-personas"></canvas> 
             </div>
         </section>
-
+        
         <section class="Clima fade-in" id="clima">
             <div class="clima-cont">
                 <h2>Clima</h2>
-                
+                <canvas id="chartclima"></canvas>
+            </div>
+        </section>
+
+        <section class="recomendaciones fade-in" id="recom">
+            <div class="reco-cont">
+                <h2>Recomendaciones</h2>
+                <div class="carousel">
+    
+                    <div class="card-caro">
+                        <figure>
+                            <img src="MEDIA/IMG/belmond-monesterio-cusco.webp" alt="Belmond">
+                            <div class="text-over">
+                                <p>Lleve efectivo por que en la mayoría de las tiendas no aceptan tarjeta de credito.</p>
+                            </div>
+                        </figure>
+                    </div>
+    
+                    <div class="card-caro">
+                        <figure>
+                            <img src="MEDIA/IMG/marriott-hotel-5-estrellas-cusco.webp" alt="Marriott">
+                            <div class="text-over">
+                                <p>No olvide llevar una casaca para la lluvia, ropa de abrigo para la noche y ropa de baño para las aguas termales.</p>
+                            </div>
+                        </figure>
+                    </div>
+                        
+                    <div class="card-caro">
+                        <figure>
+                            <img src="MEDIA/IMG/inkaterra-machu-picchu.webp" alt="Inkaterra">
+                            <div class="text-over">
+                                <p>Suba lo más pronto a la ciudadela de Machu Picchu para que pueda recorrer todo con calma y evitar la avalancha de turistas.</p>
+                            </div>
+                        </figure>
+                    </div>
+    
+                    <div class="card-caro">
+                        <figure>
+                            <img src="MEDIA/IMG/hotel_B_lima.webp" alt="Hotel_B">
+                            <div class="text-over">
+                                <p>Lleve repelente contra mosquitos.</p>
+                            </div>
+                        </figure>
+                    </div>
+    
+                    <div class="card-caro">
+                        <figure>
+                            <img src="MEDIA/IMG/aranwa_valle_sagrado.webp" alt="Aranwa">
+                            <div class="text-over">
+                                <p>Recibir la vacuna contra la fiebre amarilla esto debido a la presencia de mosquitos en la zona.</p>
+                            </div>
+                        </figure>
+                    </div>
+
+                    <div class="card-caro">
+                        <figure>
+                            <img src="MEDIA/IMG/aranwa_valle_sagrado.webp" alt="Aranwa">
+                            <div class="text-over">
+                                <p>Lleve bloqueador solar debido a que el clima de ceja de selva suele ser inclemente.</p>
+                            </div>
+                        </figure>
+                    </div>
+
+                    <div class="card-caro">
+                        <figure>
+                            <img src="MEDIA/IMG/aranwa_valle_sagrado.webp" alt="Aranwa">
+                            <div class="text-over">
+                                <p>Recuerde que al santuario no se puede llevar alimentos, mochilas mayores a 20 kilos , bastones sin tapitas en las puntas, no debe arrojar basura.</p>
+                            </div>
+                        </figure>
+                    </div>
+                        
+                </div>
             </div>
         </section>
 
